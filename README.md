@@ -1,1 +1,1 @@
-Ionic-Virtual-Scroll-Overlap-Bug
+IonicVScroll

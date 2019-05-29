@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+      <ion-button (click)="refresh()">Refresh</ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-virtual-scroll #vScroll [items]=ourItems approxItemHeight="10px">
+      <div *virtualItem="let item">
+        <app-dynamic-one  [layoutData]="item">
+        </app-dynamic-one>
+      </div>
+    </ion-virtual-scroll>
+    <ion-infinite-scroll threshold="100%" (ionInfinite)="infiniteScroll($event)" style="z-index: 99999">
+      <ion-infinite-scroll-content style="z-index: 99999;"
+              loadingSpinner="bubbles"
+              loadingText="Loading more ...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
